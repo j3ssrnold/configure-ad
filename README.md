@@ -82,7 +82,7 @@ Step 2: Create the Client VM. Go back to the Virtual Machines Tab and click Crea
 </p>
 
 >[!TIP]
->If the Network does not match, you may have attemped to create your Windows VM too soon after Domain Controller Deployment. Go back to VM screen and give Azure a few more moments. After you should try to creat your Windows VM again. Networks should match now.
+>If the Network does not match, you may have attemped to create your Windows VM too soon after Domain Controller deployment. Go back to VM screen and give Azure a few more moments. After this, you should try to create your Windows VM again. Your Networks should match.
 
 -  Now that your Windows VM has been validated - Create your machine.
 
@@ -108,11 +108,9 @@ Step 3: Set the Domain Controller's IP address to **static** to ensure that othe
 Step 4: Ensure connectivity between the Client and Domain Controller.
 
 -  Go back to VM page --> 
+
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 </p>
 <br />
 
