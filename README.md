@@ -31,9 +31,9 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Deployment and Configuration Steps</h2>
 
-Step 1: To get started with an on-premises Active Directory within Azure Virtual Machines (VM), go to [portal.azure.com](https://portal.azure.com). First you need to create the VM Domain Controller.
+Step 1: To get started with an on-premises Active Directory within Azure Virtual Machines (VM), go to the [Azure Portal](https://portal.azure.com). You will begin by creating the Domain Controller VM.
 
--  In the Virtual Machines Tab, Click Create Machine --> Enter Resource Group Name as **AD-Lab** --> Name the VM as **DC-1** --> Select **Windows Server 2022 Datacenter**.     
+-  In the VM Tab --> Click Create Machine --> Enter Resource Group Name as **AD-Lab** --> Name the VM as **DC-1** --> Select **Windows Server 2022 Datacenter**.     
 
 <p>
 <img src="https://i.imgur.com/WJW9V4h.png" title="source: imgur.com" /></a>
@@ -105,35 +105,72 @@ Step 3: Set the Domain Controller's IP address to **static** to ensure that othe
 </p>
 <br />
 
-Step 4: Ensure connectivity between the Client and Domain Controller.
+Step 4: Connect to Client-1 VM
 
--  Go back to VM page --> 
+-  Head back to VM page --> Select Client-1--> Remote Desktop Connection - Connect --> Select Yes on validation certificate. 
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/8Gf0O4e.png" title="source: imgur.com" /></a>
+<img src="https://i.imgur.com/QyJr0QQ.png" title="source: imgur.com" /></a>
+</p>
+
+-  Login pop-up window --> More Users --> Use Different Account --> Enter Username/Password you used when creating VM --> Click OK
+
+<p>
+<img src="https://i.imgur.com/PDpaLCd.png" title="source: imgur.com" /></a>
+<img src="https://i.imgur.com/ZaGSR8w.png" title="source: imgur.com" /></a>
 </p>
 <br />
 
+Step 5: Ensure Connectivity Between Client-1 and Domain Controller.
+
+- Go down to Search bar and type in **cmd**. Open Command Prompt. Perpetual ping DC-1s private IP address ***10.0.0.4***.
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/bNDCVit.png" title="source: imgur.com" /></a>
 </p>
+
+>[!Note]
+>You should get a return of **Request Timed Out**; which means you are not yet connected to the Domain Controller.
+
+-  Login to your DC-1 VM using Remote Desktop Connection --> Enter the username/password you selected during creation --> Select OK.
+  
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+<img src="https://i.imgur.com/4GNhdqP.png" title="source: imgur.com" /></a>
+<img src="https://i.imgur.com/ZaGSR8w.png" title="source: imgur.com" /></a>
+</p>
+
+-  Your DC-1 home screen display should look like this:
+
+<p>
+<img src="https://i.imgur.com/kpvu0ox.png" title="source: imgur.com" /></a>  
+</p>
+
+-  In the search bar type in ***wf.msc*** to bring up your Windows Firewall --> Select Inbound Rules.
+
+<p>
+<img src="https://i.imgur.com/2XOFJ3V.png" title="source: imgur.com" /></a>
+</p>
+
+-  Select Protocol to organize --> Choose Both Core Networking Diagnostic options --> Enable Rule 
+
+<p>
+<img src="https://i.imgur.com/2WR5weG.png" title="source: imgur.com" /></a>
+</p>
+
+- Go back to Client-1 command prompt to check connectivity. You can see a return on the ping so your connection is successful. You can always CTRL+C to stop the ping.
+
+<p>
+<img src="https://i.imgur.com/ypddqUD.png" title="source: imgur.com" /></a>
 </p>
 <br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+Step 6: Next you will want to install Active Directory on your Domain Controller.
+
+-  Head back to DC-1. Select Add New Roles and Features --> Next to begin proceeding through install screens.
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/M7FSrkl.png" title="source: imgur.com" /></a>
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+
+-  
